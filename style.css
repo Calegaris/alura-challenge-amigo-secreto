@@ -70,6 +70,20 @@ body {
     text-align: center;
 }
 
+#mensaje-exito {
+    color: rgb(45, 196, 45);
+    /* Texto verde para indicar éxito */
+    font-family: "Inter", serif;
+    font-size: 1.2rem;
+    /* Tamaño de fuente un poco mayor */
+    margin-top: 10px;
+    /* Espacio por encima del mensaje */
+    padding: 5px;
+    /* Fondo verde claro */
+    display: inline-block;
+    /* Para que se ajuste al tamaño del texto */
+}
+
 /* Contenedores de entrada y botón */
 .input-wrapper {
     display: flex;

@@ -2,6 +2,17 @@
 
 let nombres = [];
 
+function mostrarAmigos() {
+    let lista = document.getElementById('listaAmigos');
+    lista.innerHTML = '';
+
+    for (let i = 0; i < nombres.length; i++) {
+        let li = document.createElement('li');
+        li.innerText = nombres[i];
+        lista.appendChild(li);
+    }
+}
+
 function agregarAmigo() {
     let nombre = document.getElementById('amigo').value;
 
@@ -14,6 +25,7 @@ function agregarAmigo() {
     } else {
         nombres.push(nombre);
         console.log(nombres); //para ver si se estan agregando los nombres
+        mostrarAmigos();
 
         // Muestra el mensaje de éxito en el HTML
         document.getElementById('mensaje-exito').innerText = "Nombre agregado exitosamente";

@@ -1,14 +1,14 @@
 // El principal objetivo de este desafío es fortalecer tus habilidades en lógica de programación. Aquí deberás desarrollar la lógica para resolver el problema.
 
-let nombres = [];
+let amigos = [];
 
 function mostrarAmigos() {
     let lista = document.getElementById('listaAmigos');
     lista.innerHTML = '';
 
-    for (let i = 0; i < nombres.length; i++) {
+    for (let i = 0; i < amigos.length; i++) {
         let li = document.createElement('li');
-        li.innerText = nombres[i];
+        li.innerText = amigos[i];
         lista.appendChild(li);
     }
 }
@@ -19,12 +19,12 @@ function agregarAmigo() {
     if (nombre.trim() === '') {
         alert('El campo no puede estar vacio, /nPor favor, inserte un nombre.');
         return;
-    } else if (nombres.includes(nombre)) {
+    } else if (amigos.includes(nombre)) {
         alert('El nombre ya fue agregado, por favor, inserte otro nombre.');
         return;
     } else {
-        nombres.push(nombre);
-        console.log(nombres); //para ver si se estan agregando los nombres
+        amigos.push(nombre);
+        console.log(amigos); //para ver si se estan agregando los amigos
         mostrarAmigos();
 
         // Muestra el mensaje de éxito en el HTML
@@ -36,3 +36,26 @@ function agregarAmigo() {
         document.getElementById('amigo').value = "";
     }
 }
+
+
+function sortearAmigo() {
+    if (amigos.length === 0) {
+        alert('No hay nombres en la lista. Agrega al menos un amigo antes de sortear.');
+        return;
+    }
+
+    let indiceAleatorio = Math.floor(Math.random() * amigos.length);
+    let amigoSorteado = amigos[indiceAleatorio];
+    console.log(amigoSorteado); //para ver si se esta sorteando un amigo
+    document.getElementById('resultado').innerHTML = `<li>${amigoSorteado} ha sido sorteado 🎉</li>`;
+
+    amigos = [];
+
+    // Actualizar la lista en la interfaz
+    mostrarAmigos();
+}
+
+document.getElementById('amigo').addEventListener('click', function () {
+    document.getElementById('resultado').innerHTML = '';
+});
+
